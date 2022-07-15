@@ -4,13 +4,14 @@
 
         'GET' => [
             'cities' => 'CitiesController@read',
+            'users' => 'UsersController@read',
             'flights' => 'FlightsController@read',
-            'flights/cities' => 'FlightsController@filter',
-            "flights/seats" => 'FlightsController@filter'
         ],
         'POST' => [
             'cities' => 'CitiesController@create',
             'flights' => 'FlightsController@create',
+            'users' => 'UsersController@create',
+            'login' => 'UsersController@login',
         ],
         'PUT' => [
             'cities' => 'CitiesController@update',

@@ -2,6 +2,7 @@
 
     include_once './app/controllers/CitiesController.php';
     include_once './app/controllers/FlightsController.php';
+    include_once './app/controllers/UsersController.php';
 
     class Router
     {

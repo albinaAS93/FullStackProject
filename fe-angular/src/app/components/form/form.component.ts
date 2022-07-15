@@ -21,9 +21,9 @@ export class FormComponent implements OnInit {
   createForm() {
     this.form = this.formBuilder.group({
       name: [null, Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.minLength(6)]],
-      confirmPass: ['', Validators.required]
+      username: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.minLength(6)]]
+      // confirmPass: ['', Validators.required]
     },
     {
       // validator: MustMatch('password', 'confirmPass')
@@ -40,7 +40,7 @@ export class FormComponent implements OnInit {
 
     console.log(this.form.value);
 
-    this.formService.userData(this.form.value).subscribe( res => {
+    this.formService.userData(JSON.stringify(this.form.value)).subscribe( res => {
       this.data = res;
 
       console.log(this.data);
