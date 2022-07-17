@@ -14,4 +14,3 @@ Inoltre nella nav bar è presente anche la funzione di logout.
 
 
 <a href="https://github.com/albinaAS93/FullStackProject"><h5>Link Github repository<h5></a>
-<a href=""><h5>Link Netlify<h5></a>
