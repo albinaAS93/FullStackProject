@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModifyFlightsComponent } from './components/modify-flights/modify-flights.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -31,7 +32,8 @@ const routes: Routes = [
     FormComponent,
     FlightsComponent,
     ModifyFlightsComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

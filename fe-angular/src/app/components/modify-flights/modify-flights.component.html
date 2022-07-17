@@ -1,5 +1,3 @@
-<app-navbar></app-navbar>
-
 <div class="row row-cols-1 row-cols-md-3 my-5 mx-1 text-start">
   <div class="col">
     <div class="card mb-4 rounded-3 shadow-sm border-success">
@@ -58,7 +56,7 @@
         <h4 class="my-0 fw-normal text-center">Delete</h4>
       </div>
       <div class="card-body py-5">
-        <form (ngSubmit)="delete()" [formGroup]="form">
+        <form (ngSubmit)='delete()' [formGroup]="form">
           <div class="p-2"></div>
           <div class="form-group px-3 py-5">
             <label for="id">Flight ID</label>
