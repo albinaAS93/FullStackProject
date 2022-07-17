@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlightsService {
 
+  private _url = 'http://localhost:8888/flights';
+
   constructor(private http: HttpClient) { }
 
-  flightsData() {
-    console.log();
-
-    return this.http.get('http://localhost:8888/flights');
+  flights() {
+    return this.http.get(this._url);
   }
 
 }

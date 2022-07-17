@@ -8,14 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormComponent } from './components/form/form.component';
+import { FlightsComponent } from './components/flights/flights.component'
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'form', component: FormComponent},
-  {path: 'home', component: HomeComponent,
+  {path: 'flights', component: FlightsComponent,
   canActivate: [TravelGuard]}
 ];
 
@@ -24,7 +25,7 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     FormComponent,
-    HomeComponent
+    FlightsComponent
   ],
   imports: [
     BrowserModule,

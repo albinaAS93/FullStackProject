@@ -2,19 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { FlightsService } from 'src/app/services/flights.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-flights',
+  templateUrl: './flights.component.html',
+  styleUrls: ['./flights.component.css']
 })
 export class HomeComponent implements OnInit {
 
   data: any;
+  // id : number;
+  // departure: string;
+  // arrival: string;
+  // availableSeats: number;
 
   constructor(private flights : FlightsService) { }
 
   ngOnInit(): void {
 
-    this.flights.flightsData().subscribe( res => {
+    this.flights.flights().subscribe( res => {
       this.data = res;
 
       console.log(this.data);
