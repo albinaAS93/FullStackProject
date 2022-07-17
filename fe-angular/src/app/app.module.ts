@@ -13,6 +13,7 @@ import { FlightsComponent } from './components/flights/flights.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModifyFlightsComponent } from './components/modify-flights/modify-flights.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -29,7 +30,8 @@ const routes: Routes = [
     LoginComponent,
     FormComponent,
     FlightsComponent,
-    ModifyFlightsComponent
+    ModifyFlightsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

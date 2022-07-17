@@ -40,7 +40,7 @@ export class FormComponent implements OnInit {
 
     console.log(this.form.value);
 
-    this.formService.userData(JSON.stringify(this.form.value)).subscribe( res => {
+    this.formService.userData(JSON.stringify(this.form.value)).subscribe(res => {
       this.data = res;
 
       console.log(this.data);
