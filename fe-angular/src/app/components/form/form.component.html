@@ -1,6 +1,6 @@
-<div class="container d-flex bg-light my-5 p-5 justify-content-center">
+<div class="container d-flex p-4 justify-content-center">
 
-  <form (ngSubmit)="submit()" [formGroup]="form" class="bg-secondary p-5 w-50">
+  <form (ngSubmit)="submit()" [formGroup]="form">
 
     <div class="form-group px-5 p-3">
       <label for="name">Name</label>
@@ -17,12 +17,12 @@
       <input type="password" formControlName="password" name="password" class="form-control" placeholder="Enter password">
     </div>
 
-    <div class="container d-flex justify-content-center my-4">
-      <button type="submit" class="btn btn-light">Register</button>
+    <div class="container d-flex justify-content-center my-3">
+      <button type="submit" class="btn btn-outline-dark">Register</button>
     </div>
 
-    <div class="container d-flex justify-content-center my-4">
-      <button type="submit" class="btn btn-light" routerLink="">Back</button>
+    <div class="container d-flex justify-content-center">
+      <button type="submit" class="btn btn-secondary" routerLink="">Back</button>
     </div>
 
   </form>
