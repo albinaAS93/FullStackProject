@@ -1,0 +1,72 @@
+<div class="container d-flex bg-light my-5 p-5 justify-content-center">
+
+  <form (ngSubmit)="submit()" [formGroup]="form" class="bg-secondary p-5 w-50">
+
+    <div class="form-group px-5 p-3">
+      <label for="dep-city">Departure City</label>
+      <input type="text" formControlName="dep-city" name="dep-city" class="form-control" placeholder="Enter departure city">
+    </div>
+
+    <div class="form-group px-5 p-3">
+      <label for="arr-city">Arrival City</label>
+      <input type="text" formControlName="arr-city" name="arr-city" class="form-control" placeholder="Enter arrival city" >
+    </div>
+
+    <div class="form-group px-5 p-3">
+      <label for="availableSeats">Available Seats</label>
+      <input type="number" formControlName="availableSeats" name="availableSeats" class="form-control" placeholder="Enter seats">
+    </div>
+
+    <div class="container d-flex justify-content-center my-4">
+      <button type="submit" class="btn btn-light" routerLink="">ADD FLIGHT</button>
+    </div>
+
+    <div class="container d-flex justify-content-center my-4">
+      <button type="submit" class="btn btn-light" routerLink="flights">Back</button>
+    </div>
+
+  </form>
+
+</div>
+
+<!-- <div class="container my-5 p-5 w-75">
+  <h2>Update Flight</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Departure</th>
+        <th scope="col">Arrival</th>
+        <th scope="col">Available Seats</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flight of flights">
+        <th scope="row">{{flight.id}}</th>
+        <td>{{flight.departure}}</td>
+        <td>{{flight.arrival}}</td>
+        <td>{{flight.availableSeats}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<!-- <div class="container my-5 p-5 w-75">
+  <h2>Delete Flight</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Departure</th>
+        <th scope="col">Arrival</th>
+        <th scope="col">Available Seats</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flight of flights">
+        <th scope="row">{{flight.id}}</th>
+        <td>{{flight.departure}}</td>
+        <td>{{flight.arrival}}</td>
+        <td>{{flight.availableSeats}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

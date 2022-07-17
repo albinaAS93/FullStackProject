@@ -6,25 +6,23 @@ import { FlightsService } from 'src/app/services/flights.service';
   templateUrl: './flights.component.html',
   styleUrls: ['./flights.component.css']
 })
-export class HomeComponent implements OnInit {
+export class FlightsComponent implements OnInit {
 
-  data: any;
-  // id : number;
-  // departure: string;
-  // arrival: string;
-  // availableSeats: number;
+  public flights = [] as any;
+  public cities = [] as any;
 
-  constructor(private flights : FlightsService) { }
+  constructor(private flightsService: FlightsService) { }
 
   ngOnInit(): void {
-
-    this.flights.flights().subscribe( res => {
-      this.data = res;
-
-      console.log(this.data);
-
-    })
-
+    this.flightsList();
   }
+
+  flightsList() {
+    this.flightsService.getFlights().subscribe( res => {
+      this.flights = res;
+    })
+  }
+
+
 
 }

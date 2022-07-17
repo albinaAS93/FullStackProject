@@ -12,11 +12,14 @@ import { FlightsComponent } from './components/flights/flights.component'
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ModifyFlightsComponent } from './components/modify-flights/modify-flights.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'form', component: FormComponent},
   {path: 'flights', component: FlightsComponent,
+  canActivate: [TravelGuard]},
+  {path: 'modifyFlights', component: ModifyFlightsComponent,
   canActivate: [TravelGuard]}
 ];
 
@@ -25,7 +28,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     FormComponent,
-    FlightsComponent
+    FlightsComponent,
+    ModifyFlightsComponent
   ],
   imports: [
     BrowserModule,
