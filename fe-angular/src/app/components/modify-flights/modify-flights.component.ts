@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,6 +10,9 @@ import { FlightsService } from 'src/app/services/flights.service';
   styleUrls: ['./modify-flights.component.css']
 })
 export class ModifyFlightsComponent implements OnInit {
+
+  public cities = [] as any;
+  public flights = [] as any;
 
   form!: FormGroup;
   submitted = false;
@@ -31,11 +35,22 @@ export class ModifyFlightsComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+    this.citiesList();
+    this.flightsList();
   }
 
-  get f() {
-    return this.form.controls;
+  citiesList() {
+    this.flightsService.getCities().subscribe( res => {
+      this.cities = res;
+    })
   }
+
+  flightsList() {
+    this.flightsService.getFlights().subscribe( res => {
+      this.flights = res;
+    })
+  }
+
 
   add() {
     this.flightsService.addFlight(this.form.value).subscribe(res => {
@@ -50,12 +65,8 @@ export class ModifyFlightsComponent implements OnInit {
   }
 
   delete() {
-    console.log(this.form.value);
-
     this.flightsService.deleteFlight(this.form.value).subscribe(res => {
       this.data = res;
-      console.log(this.data);
-
     });
   }
 

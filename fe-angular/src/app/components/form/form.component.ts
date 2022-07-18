@@ -9,6 +9,8 @@ import { FormService } from 'src/app/services/form.service';
 })
 export class FormComponent implements OnInit {
 
+  public user = [] as any;
+
   form!: FormGroup;
   submitted = false;
   data: any;
@@ -22,31 +24,27 @@ export class FormComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: [null, Validators.required],
       username: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.minLength(6)]]
-      // confirmPass: ['', Validators.required]
-    },
-    {
-      // validator: MustMatch('password', 'confirmPass')
+      password: ['', Validators.required, [Validators.minLength(8)]]
     });
   }
 
   ngOnInit(): void {
-
     this.createForm();
-
   }
 
   submit() {
-
-    console.log(this.form.value);
-
+    if(this.form.invalid){
+      alert('Tutti i campi sono obbligatori');
+      return;
+    }
     this.formService.userData(JSON.stringify(this.form.value)).subscribe(res => {
       this.data = res;
-
-      console.log(this.data);
-
     })
-
   }
+
+  get name() { return this.form.get('name'); }
+  get username() { return this.form.get('username'); }
+  get password() { return this.form.get('password'); }
+
 
 }

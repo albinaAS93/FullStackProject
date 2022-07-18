@@ -32,20 +32,12 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  get f(){
-    return this.form.controls;
-  }
-
   submit() {
 
-    // this.router.navigate(['/home']);
-
-    // this.submitted = true;
-
-    // if(this.form.invalid){
-    //   return;
-
-    // }
+    if(this.form.invalid){
+      alert('Tutti i campi sono obbligatori');
+      return;
+    }
 
     localStorage.setItem('isLogged', '0');
 

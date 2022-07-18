@@ -1,19 +1,25 @@
-<div class="row row-cols-1 row-cols-md-3 mx-2 my-5 text-start py-5 w-75">
+<div class="row row-cols-1 row-cols-md-3 mx-2 my-5 text-start py-5">
   <div class="col">
-    <div class="card mb-4 rounded-3 shadow-sm border-success">
-      <div class="card-header py-3 bg-success text-white">
+    <div class="card mb-4 rounded-3 shadow-sm border-secondary">
+      <div class="card-header py-3 bg-light text-dark">
         <h4 class="my-0 fw-normal text-center">Add Flight</h4>
       </div>
       <div class="card-body">
         <form (ngSubmit)="add()" [formGroup]="form">
           <div class="form-group p-3">
-            <label for="departure">Departure</label>
-            <input type="number" formControlName="departure" name="departure" class="form-control" placeholder="Enter departure city">
+            <label for="departure">Departure City</label>
+            <select class="form-control" formControlName="departure" name="departure" id="departure">
+              <!-- <option selected>Select departure city</option> -->
+              <option value={{city.id}} *ngFor="let city of cities">{{city.name}}
+            </select>
           </div>
 
           <div class="form-group p-3">
-            <label for="arrival">Arrival</label>
-            <input type="number" formControlName="arrival" name="arrival" class="form-control" placeholder="Enter arrival city" >
+            <label for="arrival">Arrival City</label>
+            <select class="form-control" formControlName="arrival" name="arrival" id="arrival">
+              <!-- <option selected>Select arrival city</option> -->
+              <option value={{city.id}} *ngFor="let city of cities">{{city.name}}
+            </select>
           </div>
 
           <div class="form-group p-3">
@@ -22,7 +28,7 @@
           </div>
 
           <div class="container d-flex justify-content-center my-4">
-            <button type="submit" class="w-50 btn btn-lg btn-success m-2">
+            <button type="submit" class="w-50 btn btn-lg btn-secondary m-2">
               Add
               <i class="fa-solid fa-check"></i>
             </button>
@@ -36,22 +42,26 @@
     </div>
   </div>
   <div class="col">
-    <div class="card mb-4 rounded-3 shadow-sm border-warning">
-      <div class="card-header py-3 bg-warning">
-        <h4 class="my-0 fw-normal text-center">Update Flight</h4>
+    <div class="card mb-4 rounded-3 shadow-sm border-secondary">
+      <div class="card-header py-3 bg-light">
+        <h4 class="my-0 fw-normal text-center">Update</h4>
       </div>
-      <div class="card-body">
-        <form (ngSubmit)="update()" [formGroup]="form" class="p-1">
-          <div class="form-group pt-5 px-4">
-            <label for="id">Flight ID</label>
-            <input type="number" formControlName="id" name="id" class="form-control" placeholder="Enter flight id">
+      <div class="card-body py-5">
+        <form (ngSubmit)='update()' [formGroup]="form">
+          <div class="p-2"></div>
+          <div class="form-group p-3">
+            <label for="id">Update Flight</label>
+            <select class="form-control" formControlName="id" name="id" id="id">
+              <!-- <option selected>Select flight id</option> -->
+              <option value={{flight.id}} *ngFor="let flight of flights">{{flight.departure}} - {{flight.arrival}}
+            </select>
           </div>
-          <div class="form-group py-5 px-4">
+          <div class="form-group p-3">
             <label for="availableSeats">Available Seats</label>
             <input type="number" formControlName="availableSeats" name="availableSeats" class="form-control" placeholder="Enter seats">
           </div>
-          <div class="container d-flex justify-content-center my-4 py-2">
-            <button type="submit" class="w-50 btn btn-lg btn-warning m-1">
+          <div class="container d-flex justify-content-center mt-4 pt-5">
+            <button type="submit" class="w-50 btn btn-lg btn-secondary m-1">
               Update
               <i class="fa-solid fa-pencil"></i>
             </button>
@@ -65,19 +75,22 @@
     </div>
   </div>
   <div class="col">
-    <div class="card mb-4 rounded-3 shadow-sm border-danger">
-      <div class="card-header py-3 text-white bg-danger border-danger">
+    <div class="card mb-4 rounded-3 shadow-sm border-secondary">
+      <div class="card-header py-3 text-dark bg-light">
         <h4 class="my-0 fw-normal text-center">Delete</h4>
       </div>
       <div class="card-body py-5">
         <form (ngSubmit)='delete()' [formGroup]="form">
           <div class="p-2"></div>
           <div class="form-group px-3 py-5">
-            <label for="id">Flight ID</label>
-            <input type="number" formControlName="id" name="id" class="form-control" placeholder="Enter flight id">
+            <label for="id">Select Flight</label>
+            <select class="form-control" formControlName="id" name="id" id="id">
+              <!-- <option selected>Select flight id</option> -->
+              <option value={{flight.id}} *ngFor="let flight of flights">{{flight.departure}} - {{flight.arrival}}
+            </select>
           </div>
           <div class="container d-flex justify-content-center mt-5 pt-5">
-            <button type="submit" class="w-50 btn btn-lg btn-danger m-2">
+            <button type="submit" class="w-50 btn btn-lg btn-secondary m-2">
               Delete
               <i class="fa-solid fa-xmark"></i>
             </button>
