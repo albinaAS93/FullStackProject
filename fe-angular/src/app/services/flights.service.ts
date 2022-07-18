@@ -29,7 +29,7 @@ export class FlightsService {
   }
 
   deleteFlight(data: any) {
-    return this.http.delete(this._url, data);
+    return this.http.delete(this._url, {body: data});
   }
 
 }

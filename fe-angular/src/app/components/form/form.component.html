@@ -1,20 +1,20 @@
-<div class="container d-flex p-4 justify-content-center">
+<div class="container d-flex p-4 justify-content-center pt-5 mt-5">
 
   <form (ngSubmit)="submit()" [formGroup]="form">
 
     <div class="form-group px-5 p-3">
       <label for="name">Name</label>
-      <input type="text" formControlName="name" name="name" class="form-control" placeholder="Enter name">
+      <input type="text" formControlName="name" name="name" class="form-control" placeholder="Enter name" required>
     </div>
 
     <div class="form-group px-5 p-3">
       <label for="username">Username</label>
-      <input type="text" formControlName="username" name="username" class="form-control" placeholder="Enter email" >
+      <input type="text" formControlName="username" name="username" class="form-control" placeholder="Enter email" required>
     </div>
 
     <div class="form-group px-5 p-3">
       <label for="password">Password</label>
-      <input type="password" formControlName="password" name="password" class="form-control" placeholder="Enter password">
+      <input type="password" formControlName="password" name="password" class="form-control" placeholder="Enter password" required>
     </div>
 
     <div class="container d-flex justify-content-center my-3">

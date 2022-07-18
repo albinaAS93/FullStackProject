@@ -1,4 +1,4 @@
-<div class="row row-cols-1 row-cols-md-3 my-5 mx-1 text-start">
+<div class="row row-cols-1 row-cols-md-3 mx-2 my-5 text-start py-5 w-75">
   <div class="col">
     <div class="card mb-4 rounded-3 shadow-sm border-success">
       <div class="card-header py-3 bg-success text-white">
@@ -22,7 +22,14 @@
           </div>
 
           <div class="container d-flex justify-content-center my-4">
-            <button type="submit" class="w-100 btn btn-lg btn-success">Add</button>
+            <button type="submit" class="w-50 btn btn-lg btn-success m-2">
+              Add
+              <i class="fa-solid fa-check"></i>
+            </button>
+            <button type="submit" class="w-50 btn btn-lg btn-dark m-2" routerLink="/flights">
+              Back
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
           </div>
         </form>
       </div>
@@ -34,7 +41,7 @@
         <h4 class="my-0 fw-normal text-center">Update Flight</h4>
       </div>
       <div class="card-body">
-        <form (ngSubmit)="update()" [formGroup]="form">
+        <form (ngSubmit)="update()" [formGroup]="form" class="p-1">
           <div class="form-group pt-5 px-4">
             <label for="id">Flight ID</label>
             <input type="number" formControlName="id" name="id" class="form-control" placeholder="Enter flight id">
@@ -44,7 +51,14 @@
             <input type="number" formControlName="availableSeats" name="availableSeats" class="form-control" placeholder="Enter seats">
           </div>
           <div class="container d-flex justify-content-center my-4 py-2">
-            <button type="submit" class="w-100 btn btn-lg btn-warning">Update</button>
+            <button type="submit" class="w-50 btn btn-lg btn-warning m-1">
+              Update
+              <i class="fa-solid fa-pencil"></i>
+            </button>
+            <button type="submit" class="w-50 btn btn-lg btn-dark m-1" routerLink="/flights">
+              Back
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
           </div>
         </form>
       </div>
@@ -63,7 +77,14 @@
             <input type="number" formControlName="id" name="id" class="form-control" placeholder="Enter flight id">
           </div>
           <div class="container d-flex justify-content-center mt-5 pt-5">
-            <button type="submit" class="w-100 btn btn-lg btn-danger">Delete</button>
+            <button type="submit" class="w-50 btn btn-lg btn-danger m-2">
+              Delete
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+            <button type="submit" class="w-50 btn btn-lg btn-dark m-2" routerLink="/flights">
+              Back
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
           </div>
         </form>
       </div>
