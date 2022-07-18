@@ -5,6 +5,8 @@
 - be-php        => Back End sviluppato in PHP
 - fe-angular    => Front End sviluppato in Angular
 
+<p>Il file backend.sql presente nella directory principale della repository è il file migrations del backend.</p>
+
 <p>
 La homepage del sito è la pagina di login, ma solo un utente registrato può accedervi.
 Una volta effettuata la registrazione si ha accesso al back-office con una tabella
@@ -13,7 +15,8 @@ Inoltre nella nav bar è presente anche la funzione di logout.
 </p>
 
 
-<a href="https://github.com/albinaAS93/FullStackProject"><h5>Link Github repository<h5></a>
+<h5>Presentazione<h5>
+[Progetto-Finale-Full-Stack-Albina-Sela.pdf]
 
   <h3> Il sito si presenta così </h3>
   
