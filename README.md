@@ -15,7 +15,10 @@ Inoltre nella nav bar è presente anche la funzione di logout.
 
 <a href="https://github.com/albinaAS93/FullStackProject"><h5>Link Github repository<h5></a>
 
-![login](https://user-images.githubusercontent.com/102250096/179514690-d4828762-5894-4622-8716-4925755d1c77.PNG)
-![register](https://user-images.githubusercontent.com/102250096/179514710-7b6a1845-306e-4386-9f5d-a29d41892d13.PNG)
-![home](https://user-images.githubusercontent.com/102250096/179514741-b9002605-08b1-46bb-9767-49cbf1e6d780.PNG)
-![modify](https://user-images.githubusercontent.com/102250096/179514758-1eb90f65-0c8d-4e52-900b-450b0580576c.PNG)
+  <h3> Il sito si presenta così </h3>
+  
+  
+![login](https://user-images.githubusercontent.com/102250096/179515326-4fe00d8c-3a4d-4408-9092-308c10d830f7.PNG)
+![register](https://user-images.githubusercontent.com/102250096/179515333-61ea4e25-f048-404a-b824-83d0c7dbf6bc.PNG)
+![home](https://user-images.githubusercontent.com/102250096/179515339-947f0482-c25e-4fdc-8f57-f5010776d4cb.PNG)
+![modify](https://user-images.githubusercontent.com/102250096/179515347-e125f1b8-0f04-46e1-97f5-75c8a670ceb2.PNG)
