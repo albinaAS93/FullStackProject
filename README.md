@@ -14,11 +14,7 @@ che rappresenta la lista di tutti i voli disponibili. Ognuno di essi può essere
 Inoltre nella nav bar è presente anche la funzione di logout.
 </p>
 
-
-<h5>Presentazione<h5>
-[Progetto-Finale-Full-Stack-Albina-Sela.pdf]
-
-  <h3> Il sito si presenta così </h3>
+<h3> Il sito si presenta così </h3>
   
 ![login](https://user-images.githubusercontent.com/102250096/179517287-21ad52cd-5025-42fc-a8c4-d786bf69ba17.PNG)
 ![register](https://user-images.githubusercontent.com/102250096/179517293-7f36d4b7-fa7b-49f9-8552-2ccf72d0f4a1.PNG)
