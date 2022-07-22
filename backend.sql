@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `cities` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `cities`
@@ -69,7 +69,7 @@ CREATE TABLE `flights` (
   `departure` int(11) NOT NULL,
   `arrival` int(11) NOT NULL,
   `availableSeats` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `flights`
@@ -94,7 +94,7 @@ CREATE TABLE `users` (
   `name` varchar(20) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `users`

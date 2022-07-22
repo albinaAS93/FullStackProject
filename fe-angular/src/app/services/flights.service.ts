@@ -2,18 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IFlights } from '../components/flights/flights';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlightsService {
 
-  private _url = 'http://localhost:8888/flights';
+  private _url = environment.apiUrl + 'flights';
 
   constructor(private http: HttpClient) { }
 
   getCities() {
-    return this.http.get('http://localhost:8888/cities');
+    return this.http.get(environment.apiUrl + 'cities');
   }
 
   getFlights(): Observable<IFlights> {
