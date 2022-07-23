@@ -16,14 +16,20 @@ Inoltre nella nav bar è presente anche la funzione di logout.
 
 <h3> Il sito si presenta così </h3>
   
-
-![register](https://user-images.githubusercontent.com/102250096/179517293-7f36d4b7-fa7b-49f9-8552-2ccf72d0f4a1.PNG)
+![login](https://user-images.githubusercontent.com/102250096/180622513-cc5c8ac7-c754-4378-bdca-1bca3e57085d.PNG)
+![register](https://user-images.githubusercontent.com/102250096/180622523-93ff25d2-9232-4c52-a9e5-672e89959b07.PNG)
   
 <br><br>
   
-![home](https://user-images.githubusercontent.com/102250096/179517303-df2522ff-7ced-42f2-92ef-8d289ad7c107.PNG)
-![modify](https://user-images.githubusercontent.com/102250096/179517318-5316dd4a-e443-4bfe-9c76-ef0401c84535.PNG)
+![home](https://user-images.githubusercontent.com/102250096/180622529-2605c881-529e-437c-891b-fc0ec00c1cd4.PNG)
+![modify](https://user-images.githubusercontent.com/102250096/180622534-5736c77c-460b-47db-9e41-5f50c17255b1.PNG)
 
+<br>
+
+Il sito è stato deployato su Altervista.org   <a href="http://s2iprogettofullstack.altervista.org/"> Full Stack Project </a>
+
+
+<br><br>
 
 # FullStackProject
 
