@@ -19,7 +19,7 @@ Inoltre nella nav bar è presente anche la funzione di logout.
 ![login](https://user-images.githubusercontent.com/102250096/180622513-cc5c8ac7-c754-4378-bdca-1bca3e57085d.PNG)
 ![register](https://user-images.githubusercontent.com/102250096/180622523-93ff25d2-9232-4c52-a9e5-672e89959b07.PNG)
   
-<br><br>
+<br>
   
 ![home](https://user-images.githubusercontent.com/102250096/180622529-2605c881-529e-437c-891b-fc0ec00c1cd4.PNG)
 ![modify](https://user-images.githubusercontent.com/102250096/180622534-5736c77c-460b-47db-9e41-5f50c17255b1.PNG)
