@@ -16,10 +16,39 @@ Inoltre nella nav bar è presente anche la funzione di logout.
 
 <h3> Il sito si presenta così </h3>
   
-![login](https://user-images.githubusercontent.com/102250096/179517287-21ad52cd-5025-42fc-a8c4-d786bf69ba17.PNG)
+
 ![register](https://user-images.githubusercontent.com/102250096/179517293-7f36d4b7-fa7b-49f9-8552-2ccf72d0f4a1.PNG)
   
 <br><br>
   
 ![home](https://user-images.githubusercontent.com/102250096/179517303-df2522ff-7ced-42f2-92ef-8d289ad7c107.PNG)
 ![modify](https://user-images.githubusercontent.com/102250096/179517318-5316dd4a-e443-4bfe-9c76-ef0401c84535.PNG)
+
+
+# FullStackProject
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
