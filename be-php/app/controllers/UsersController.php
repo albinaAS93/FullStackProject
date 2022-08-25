@@ -59,11 +59,11 @@
             if (!empty($data['username'])) {
                 if ($user->login($data)) {
                     http_response_code(200);
-                    echo json_encode(array("message" => "1"));
+                    echo json_encode(array("message" => "Valid username and password"));
                     exit;
                 } else {
                     http_response_code(200);
-                    echo json_encode(array("message" => "0"));
+                    echo json_encode(array("message" => "Invalid username or password."));
                     exit;
                 }
             } else {

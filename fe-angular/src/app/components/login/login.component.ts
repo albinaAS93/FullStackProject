@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   form!: FormGroup;
   submitted = false;
-  data:any;
+  data: any;
   token: any;
 
   ngOnInit(): void {

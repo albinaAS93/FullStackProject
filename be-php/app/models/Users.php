@@ -18,10 +18,12 @@ class User {
 
         $stmt = $this->pdo->openConnection()->prepare($sql);
 
+        $hash =  password_hash($data['password'], PASSWORD_DEFAULT);
+
         $param = array(
             'name' => $data['name'],
             'username' => $data['username'],
-            'password' => $data['password']
+            'password' => $hash
         );
 
         if ($stmt->execute($param)) {
@@ -54,29 +56,35 @@ class User {
     function login(array $data)
     {
         $sql = "
-            SELECT username, password From users where username = :username and password = :password
+            SELECT username, password 
+            FROM users 
+            WHERE username = :username and password = :password
         ";
 
         $stmt = $this->pdo->openConnection()->prepare($sql);
 
+        $hash = password_hash($data['password'], PASSWORD_DEFAULT);
     
         $param = array(
             'username' => $data['username'],
-            'password' => $data['password']
+            'password' => $hash
         );
 
-        $stmt->execute($param);
+        if (password_verify($data['password'], $hash)) {
 
+            $stmt->execute($param);
 
-        if ($stmt->execute($param)) {
-            $rows = array();
-            while (($row = $stmt->fetch(PDO::FETCH_ASSOC)) !== false) {
-                $rows[] = $row;
-            }
-            return $rows;
-        } else {
-            return false;
+            if ($stmt->execute($param)) {
+                $rows = array();
+                while ((($row = $stmt->fetch(PDO::FETCH_ASSOC)) !== false)) {
+                    $rows[] = $row;
+                }
+                return $rows;
+            } else {
+                return false;
+            }        
         }
+
     }
 
 }
