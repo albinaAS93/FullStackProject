@@ -1,9 +1,6 @@
 <?php
 
-    include_once 'core/bootstrap.php';
-
-    class CitiesController{
-
+    class CitiesController extends BaseController {
 
         public function read() {
 

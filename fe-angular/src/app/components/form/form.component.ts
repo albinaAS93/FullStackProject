@@ -22,9 +22,9 @@ export class FormComponent implements OnInit {
 
   createForm() {
     this.form = this.formBuilder.group({
-      name: [null, Validators.required],
+      name: ['', Validators.required],
       username: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required, [Validators.minLength(8)]]
+      password: ['', Validators.required]
     });
   }
 

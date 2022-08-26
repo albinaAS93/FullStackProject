@@ -19,7 +19,7 @@
         ],
         'DELETE' => [
             'cities' => 'CitiesController@delete',
-            'flights' => 'FlightsController@delete',
+            'flights\/(\d+)' => 'FlightsController@delete',
         ]
     ];
 

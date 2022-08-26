@@ -41,6 +41,9 @@ export class LoginComponent implements OnInit {
 
     localStorage.setItem('isLogged', '0');
 
+    console.log(this.form.value);
+
+
     this.formService.login(JSON.stringify(this.form.value)).subscribe(res => {
       this.data = res;
       console.log(this.data.message);
@@ -49,7 +52,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('isLogged', '1');
         this.router.navigate(['/home']);
       }else {
-        alert("Email o password errata");
+        console.log("Email o password errata");
       }
 
 

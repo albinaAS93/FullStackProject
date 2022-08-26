@@ -18,12 +18,12 @@ class User {
 
         $stmt = $this->pdo->openConnection()->prepare($sql);
 
-        $hash =  password_hash($data['password'], PASSWORD_DEFAULT);
+        // $hash =  password_hash($data['password'], PASSWORD_DEFAULT);
 
         $param = array(
             'name' => $data['name'],
             'username' => $data['username'],
-            'password' => $hash
+            'password' => hash("sha1", $data['password'])
         );
 
         if ($stmt->execute($param)) {
@@ -63,14 +63,15 @@ class User {
 
         $stmt = $this->pdo->openConnection()->prepare($sql);
 
-        $hash = password_hash($data['password'], PASSWORD_DEFAULT);
+        // $hash = password_hash($data['password'], PASSWORD_DEFAULT);
     
         $param = array(
             'username' => $data['username'],
-            'password' => $hash
+            'password' => hash("sha1", $data['password'])
         );
 
-        if (password_verify($data['password'], $hash)) {
+        if ($data['password']) {
+
 
             $stmt->execute($param);
 

@@ -1,8 +1,6 @@
 <?php
 
-    include_once 'core/bootstrap.php';
-
-    class UsersController{
+    class UsersController extends BaseController {
 
         public function create() {
 
@@ -59,11 +57,11 @@
             if (!empty($data['username'])) {
                 if ($user->login($data)) {
                     http_response_code(200);
-                    echo json_encode(array("message" => "Valid username and password"));
+                    echo json_encode(array("message" => "1"));
                     exit;
                 } else {
                     http_response_code(200);
-                    echo json_encode(array("message" => "Invalid username or password."));
+                    echo json_encode(array("message" => "0"));
                     exit;
                 }
             } else {

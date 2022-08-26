@@ -11,6 +11,8 @@ export class FlightsComponent implements OnInit {
   public flights = [] as any;
   public cities = [] as any;
 
+  data: any;
+
   constructor(private flightsService: FlightsService) { }
 
   ngOnInit(): void {
@@ -23,6 +25,10 @@ export class FlightsComponent implements OnInit {
     })
   }
 
-
+  delete(id:any) {
+    this.flightsService.deleteFlight(id).subscribe(res => {
+      this.flightsList();
+    });
+  }
 
 }

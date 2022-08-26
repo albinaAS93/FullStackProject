@@ -1,17 +1,11 @@
 <?php
 
-    include_once 'core/bootstrap.php'; 
+    class FlightsController extends BaseController {
 
-    class FlightsController{
-
-        public function read() {
-
-            header("Access-Control-Allow-Origin: *");
-            header("Content-Type: application/json; charset=UTF-8");
-            header("Access-Control-Allow-Methods: GET");
-            header("Access-Control-Max-Age: 3600");
-            header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+        public function read($parameters) {
             
+            $this->outputHeadersFroMethod('GET');
+
             $request = new Request;
             $request->decodeHttpRequest();
             
@@ -33,12 +27,8 @@
 
         public function create() {
 
-            header("Access-Control-Allow-Origin: *");
-            header("Content-Type: application/json; charset=UTF-8");
-            header("Access-Control-Allow-Methods: POST");
-            header("Access-Control-Max-Age: 3600");
-            header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-            
+            $this->outputHeadersFroMethod('POST');
+
             $request = new Request;
             $request->decodeHttpRequest();
             $data = $request->getBody();
@@ -67,47 +57,39 @@
 
         }
 
-        public function delete() {
+        public function delete($parameters) {
 
-            header("Access-Control-Allow-Origin: *");
-            header("Content-Type: application/json; charset=UTF-8");
-            header("Access-Control-Allow-Methods: DELETE");
-            header("Access-Control-Max-Age: 3600");
-            header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-            
+            $id = (int)$parameters[1];
+
+            $this->outputHeadersFroMethod('DELETE');
+
             $request = new Request;
             $request->decodeHttpRequest();
-            $data = $request->getBody();
             
             $database = new Database();
             $database->openConnection();
             
             $flight = new Flight($database);
             
-            if (!empty($data['id'])) {
-                if ($flight->delete($data)) {
-                    http_response_code(200);
-                    echo json_encode(array("message" => "Flight has been deleted."));
-                } else {
-                    http_response_code(503);
-                    echo json_encode(array("message" => "Flight was not deleted."));
-                }
+            if ($id < 0) {
+                $this->outputResponseWithMessage(400, "Error: Data is missing.");
+            }
+
+            if ($flight->delete($id) === true) {
+
+                $this->outputResponseWithMessage(200, "Flight has been deleted.");
+
             } else {
-                http_response_code(400);
-                echo json_encode(array("message" => "Error: Data is missing."));
+                $this->outputResponseWithMessage(503, "Flight was not deleted.");
             }
 
         }
 
         public function update() {
 
-            header("Access-Control-Allow-Origin: *");
-            header("Content-Type: application/json; charset=UTF-8");
-            header("Access-Control-Allow-Methods: PUT");
-            header("Access-Control-Max-Age: 3600");
-            header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-            
-            $request = new Request;
+            $this->outputHeadersFroMethod('UPDATE');
+
+            $request = new Request();
             $request->decodeHttpRequest();
             $data = $request->getBody();
             
@@ -116,24 +98,30 @@
             
             $flight = new Flight($database);
             
-            if (
-                !empty($data['id']) &&
-                !empty($data['availableSeats'])
-            ) {
-                if ($flight->update($data)) {
-                    http_response_code(200);
-                    echo json_encode(array("message" => "Flight has been updated."));
-                } else {
-                    http_response_code(503);
-                    echo json_encode(array("message" => "Flight was not updated."));
-                }
-            } else {
-                http_response_code(400);
-                echo json_encode(array("message" => "Error: Data is missing."));
+            if (empty($data['id']) && empty($data['availableSeats'])) {
+                $this->outputResponseWithMessage(400, "Error: Data is missing.");
             }
 
-        }
-        
-    }
+            if ($flight->update($data)) {
+                $this->outputResponseWithMessage(200, "Flight has been updated.");
+            } else {
+                $this->outputResponseWithMessage(503, "Flight was not updated.");
+            }
 
-?>
+            // if (
+            //     !empty($data['id']) &&
+            //     !empty($data['availableSeats'])
+            // ) {
+            //     if ($flight->update($data)) {
+            //         http_response_code(200);
+            //         echo json_encode(array("message" => "Flight has been updated."));
+            //     } else {
+            //         http_response_code(503);
+            //         echo json_encode(array("message" => "Flight was not updated."));
+            //     }
+            // } else {
+            //     http_response_code(400);
+            //     echo json_encode(array("message" => "Error: Data is missing."));
+            // }
+        }
+    }

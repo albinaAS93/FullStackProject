@@ -51,7 +51,6 @@ export class ModifyFlightsComponent implements OnInit {
     })
   }
 
-
   add() {
     this.flightsService.addFlight(this.form.value).subscribe(res => {
       this.data = res;
@@ -63,12 +62,5 @@ export class ModifyFlightsComponent implements OnInit {
       this.data = res;
     });
   }
-
-  delete() {
-    this.flightsService.deleteFlight(this.form.value).subscribe(res => {
-      this.data = res;
-    });
-  }
-
 
 }

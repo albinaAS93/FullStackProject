@@ -22,7 +22,6 @@
         http_response_code(200);
     
         exit;
-    
     }
 
     $fileContent = file(__DIR__.'/.env');
@@ -33,5 +32,3 @@
     $router->load($routes);
 
     $router->direct($request->getPath(), $request->getMethod());
-
-?>

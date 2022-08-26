@@ -128,7 +128,7 @@
             }
         }
 
-        function delete(array $data)
+        function delete(int $id)
         {
             $sql = "
                 DELETE FROM flights
@@ -136,12 +136,12 @@
             ;
 
             $stmt = $this->pdo->openConnection()->prepare($sql);
-            $param = array('id' => $data['id']);
+            $param = array('id' => $id);
             
             if ($stmt->execute($param)) {
                 return true;
             }
+
+            return false;
         }
     }
-
-?>
