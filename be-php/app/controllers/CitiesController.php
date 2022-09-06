@@ -4,11 +4,7 @@
 
         public function read() {
 
-            header("Access-Control-Allow-Origin: *");
-            header("Content-Type: application/json; charset=UTF-8");
-            header("Access-Control-Allow-Methods: GET");
-            header("Access-Control-Max-Age: 3600");
-            header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+            $this->outputHeadersFromMethod('GET');
 
             $request = new Request;
             $request->decodeHttpRequest();
@@ -21,22 +17,16 @@
             $recordset = $city->selectAll();
 
             if ($recordset !== false) {
-                http_response_code(201);
+                http_response_code(200);
                 echo json_encode($recordset);
             } else {
-                http_response_code(404);
-                echo json_encode(array("message" => "No city founded."));
+                $this->outputResponseWithMessage(404, "No city founded.");
             }
-
         }
 
         public function create() {
 
-            header("Access-Control-Allow-Origin: *");
-            header("Content-Type: application/json; charset=UTF-8");
-            header("Access-Control-Allow-Methods: POST");
-            header("Access-Control-Max-Age: 3600");
-            header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+            $this->outputHeadersFromMethod('POST');
         
             $request = new Request;
             $request->decodeHttpRequest();
@@ -47,30 +37,22 @@
             
             $city = new City($database);
             
+            if (empty($data['name'])) {
+                $this->outputResponseWithMessage(400, "Error: Data is missing.");
+            }
             if (!empty($data['name'])) {
         
                 if ($city->create($data)) {
-        
-                    http_response_code(201);
-                    echo json_encode(array("message" => "A new city has been added."));
+                    $this->outputResponseWithMessage(200, "A new city has been added.");
                 } else {
-                    http_response_code(503);
-                    echo json_encode(array("message" => "City was not added."));
+                    $this->outputResponseWithMessage(503, "City was not added.");
                 }
-            } else {
-                http_response_code(400);
-                echo json_encode(array("message" => "Error: Data is missing."));
             }
-
         }
 
         public function delete() {
 
-            header("Access-Control-Allow-Origin: *");
-            header("Content-Type: application/json; charset=UTF-8");
-            header("Access-Control-Allow-Methods: DELETE");
-            header("Access-Control-Max-Age: 3600");
-            header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+            $this->outputHeadersFromMethod('DELETE');
                 
             $request = new Request;
             $request->decodeHttpRequest();
@@ -81,28 +63,22 @@
         
             $city = new City($database);
         
-            if (!empty($data['id'])) {
-                if ($city->delete($data)) {
-                    http_response_code(200);
-                    echo json_encode(array("message" => "City has been deleted."));
-                } else {
-                    http_response_code(503);
-                    echo json_encode(array("message" => "City was not deleted."));
-                }
-            } else {
-                http_response_code(400);
-                echo json_encode(array("message" => "Error: Data is missing."));
+            if (empty($data['id'])) {
+                $this->outputResponseWithMessage(400, "Error: Data is missing.");
             }
 
+            if (!empty($data['id'])) {
+                if ($city->delete($data)) {
+                    $this->outputResponseWithMessage(200, "City has been deleted.");
+                } else {
+                    $this->outputResponseWithMessage(503, "City was not deleted.");
+                }
+            }
         }
 
         public function update() {
 
-            header("Access-Control-Allow-Origin: *");
-            header("Content-Type: application/json; charset=UTF-8");
-            header("Access-Control-Allow-Methods: PUT");
-            header("Access-Control-Max-Age: 3600");
-            header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+            $this->outputHeadersFromMethod('PUT');
         
             $request = new Request;
             $request->decodeHttpRequest();
@@ -113,23 +89,17 @@
         
             $city = new City($database);
         
+            if (empty($data['id']) && empty($data['name'])) {
+                $this->outputResponseWithMessage(400, "Error: Data is missing.");
+            }
+
             if (!empty($data['id']) && !empty($data['name'])) {
         
                 if ($city->update($data)) {
-                    http_response_code(200);
-                    echo json_encode(array("message" => "City has been updated."));
+                    $this->outputResponseWithMessage(200, "City has been updated.");
                 } else {
-                    http_response_code(503);
-                    echo json_encode(array("message" => "City was not updated."));
+                    $this->outputResponseWithMessage(503, "City was not updated.");
                 }
-        
-            } else {
-                http_response_code(400);
-                echo json_encode(array("message" => "Error: Data is missing."));
             }
-
         }
-        
     }
-
-?>

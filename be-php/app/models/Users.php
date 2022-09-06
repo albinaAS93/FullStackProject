@@ -62,8 +62,6 @@ class User {
         ";
 
         $stmt = $this->pdo->openConnection()->prepare($sql);
-
-        // $hash = password_hash($data['password'], PASSWORD_DEFAULT);
     
         $param = array(
             'username' => $data['username'],
@@ -71,7 +69,6 @@ class User {
         );
 
         if ($data['password']) {
-
 
             $stmt->execute($param);
 
@@ -85,7 +82,5 @@ class User {
                 return false;
             }        
         }
-
     }
-
 }

@@ -9,7 +9,6 @@
           <div class="form-group p-3">
             <label for="departure">Departure City</label>
             <select class="form-control" formControlName="departure" name="departure" id="departure">
-              <!-- <option selected>Select departure city</option> -->
               <option value={{city.id}} *ngFor="let city of cities">{{city.name}}
             </select>
           </div>
@@ -17,7 +16,6 @@
           <div class="form-group p-3">
             <label for="arrival">Arrival City</label>
             <select class="form-control" formControlName="arrival" name="arrival" id="arrival">
-              <!-- <option selected>Select arrival city</option> -->
               <option value={{city.id}} *ngFor="let city of cities">{{city.name}}
             </select>
           </div>

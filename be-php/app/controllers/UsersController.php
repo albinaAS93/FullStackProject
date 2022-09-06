@@ -4,11 +4,7 @@
 
         public function create() {
 
-            header("Access-Control-Allow-Origin: *");
-            header("Content-Type: application/json; charset=UTF-8");
-            header("Access-Control-Allow-Methods: POST");
-            header("Access-Control-Max-Age: 3600");
-            header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+            $this->outputHeadersFromMethod('POST');
 
             $request = new Request;
             $request->decodeHttpRequest();
@@ -18,31 +14,24 @@
             $database->openConnection();
             
             $user = new User($database);
+
+            if (empty($data['username'])) {
+                $this->outputResponseWithMessage(400, "Error: Data is missing.");
+            }
             
             if (!empty($data['username'])) {
-        
                 if ($user->create($data)) {
-        
-                    http_response_code(201);
-                    echo json_encode(array("message" => "New user added."));
+                    $this->outputResponseWithMessage(200, "New user added.");
                 } else {
-                    http_response_code(503);
-                    echo json_encode(array("message" => "User was not added."));
+                    $this->outputResponseWithMessage(503, "User was not added.");
                 }
-            } else {
-                http_response_code(400);
-                echo json_encode(array("message" => "Error: Data is missing."));
             }
 
         }
 
         public function login() {
 
-            header("Access-Control-Allow-Origin: *");
-            header("Content-Type: application/json; charset=UTF-8");
-            header("Access-Control-Allow-Methods: POST");
-            header("Access-Control-Max-Age: 3600");
-            header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+            $this->outputHeadersFromMethod('POST');
 
             $request = new Request;
             $request->decodeHttpRequest();
@@ -52,33 +41,26 @@
             $database->openConnection();
             
             $user = new User($database);
-            $boh = $user->login($data);
+
+            if (empty($data['username'])) {
+                $this->outputResponseWithMessage(400, "Error: Data is missing.");
+                exit;
+            }
             
             if (!empty($data['username'])) {
                 if ($user->login($data)) {
-                    http_response_code(200);
-                    echo json_encode(array("message" => "1"));
+                    $this->outputResponseWithMessage(200, "1");
                     exit;
                 } else {
-                    http_response_code(200);
-                    echo json_encode(array("message" => "0"));
+                    $this->outputResponseWithMessage(200, "0");
                     exit;
                 }
-            } else {
-                http_response_code(400);
-                echo json_encode(array("message" => "Error: Data is missing."));
-                exit;
             }
-
         }
 
         public function read() {
 
-            header("Access-Control-Allow-Origin: *");
-            header("Content-Type: application/json; charset=UTF-8");
-            header("Access-Control-Allow-Methods: GET");
-            header("Access-Control-Max-Age: 3600");
-            header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+            $this->outputHeadersFromMethod('GET');
 
             $request = new Request;
             $request->decodeHttpRequest();
@@ -91,13 +73,11 @@
             $recordset = $user->selectAll();
 
             if ($recordset !== false) {
-                http_response_code(201);
+                http_response_code(200);
                 echo json_encode($recordset);
             } else {
-                http_response_code(404);
-                echo json_encode(array("message" => "No user founded."));
+                $this->outputResponseWithMessage(404, "No user founded.");
             }
 
         }
     }
-?>

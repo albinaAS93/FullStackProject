@@ -9,16 +9,16 @@ export class TravelGuard implements CanActivate {
   constructor(private router: Router){}
 
   canActivate(): any {
-    
-      const isLogged = localStorage.getItem('isLogged');
-      console.log(isLogged);
 
-        if(isLogged == '1'){
-            return true;
-        } else {
+    const isLogged = localStorage.getItem('isLogged');
+    console.log(isLogged);
 
-            this.router.navigate(['']);
-        }
+    if(isLogged == '1'){
+      return true;
+    } else {
+      this.router.navigate(['']);
+    }
+
     return true;
   }
 

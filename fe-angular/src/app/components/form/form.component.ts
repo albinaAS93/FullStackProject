@@ -32,19 +32,21 @@ export class FormComponent implements OnInit {
     this.createForm();
   }
 
+
+  get f() {
+    return this.form.controls;
+  }
+
   submit() {
-    if(this.form.invalid){
-      alert('Tutti i campi sono obbligatori');
+
+    this.submitted = true;
+
+    if (this.form.invalid) {
+      console.log('Tutti i campi sono obbligatori');
       return;
     }
     this.formService.userData(JSON.stringify(this.form.value)).subscribe(res => {
       this.data = res;
     })
   }
-
-  get name() { return this.form.get('name'); }
-  get username() { return this.form.get('username'); }
-  get password() { return this.form.get('password'); }
-
-
 }

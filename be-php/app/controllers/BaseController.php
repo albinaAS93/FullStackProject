@@ -4,7 +4,7 @@
 
     abstract class BaseController {
     
-        protected function outputHeadersFroMethod($method) {
+        protected function outputHeadersFromMethod($method) {
 
             header("Access-Control-Allow-Origin: *");
             header("Content-Type: application/json; charset=UTF-8");
@@ -14,16 +14,11 @@
         }
 
         protected function outputResponse($code, $payload) {
-
             http_response_code($code);
             echo json_encode($payload);
         }
 
         protected function outputResponseWithMessage($code, $message) {
-
-            // http_response_code($code);
-            // echo json_encode(['message' => $message]);
-
             $this->outputResponse($code, ['message' => $message]);
         }
     }
