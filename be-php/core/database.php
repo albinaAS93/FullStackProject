@@ -17,7 +17,7 @@ class Database
         $password = getenv('DB_PASSWORD');
 
         try {
-            $this->connection = new PDO("mysql:host=" . $host . ";dbname=" . $db_name, $username, $password);
+            $this->connection = new PDO("mysql:host=".$host.";dbname=".$db_name,$username,$password);
 
         } catch(PDOException $e) {
             echo "Connection Error: " . $e->getMessage();
