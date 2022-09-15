@@ -52,12 +52,14 @@ export class ModifyFlightsComponent implements OnInit {
   }
 
   add() {
+    alert("Flight has been added.");
     this.flightsService.addFlight(this.form.value).subscribe(res => {
       this.data = res;
     });
   }
 
   update() {
+    alert("Flight has been updated.");
     this.flightsService.updateFlight(this.form.value).subscribe(res => {
       this.data = res;
     });

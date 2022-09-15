@@ -20,9 +20,9 @@ const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'form', component: FormComponent},
   {path: 'flights', component: FlightsComponent,
-  canActivate: [TravelGuard]},
+    canActivate: [TravelGuard]},
   {path: 'modifyFlights', component: ModifyFlightsComponent,
-  canActivate: [TravelGuard]}
+    canActivate: [TravelGuard]}
 ];
 
 @NgModule({

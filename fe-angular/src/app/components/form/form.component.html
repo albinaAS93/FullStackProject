@@ -1,12 +1,14 @@
 <div class="container d-flex justify-content-center border-secondary p-5 mt-4">
 
-  <form [form-group]="form" (ngSubmit)="submit()"  class="my-5 p-5">
+  <form [formGroup]="requiredForm" (ngSubmit)="submit()" class="my-5 p-5">
 
     <div class="form-group p-3">
       <label class="form-label" for="name">Name</label>
-      <input type="text" formControlName="name" id="name" name="name" class="form-control" placeholder="Enter name" [ngClass]="{'is-invalid' : submitted && f.name.errors}">
-      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-        <div *ngIf="f.name.errors.required">Name is required</div>
+      <input type="text" formControlName="name" id="name" name="name" class="form-control" placeholder="Enter name">
+    </div>
+    <div *ngIf="requiredForm.controls['name'].invalid && requiredForm.controls['name'].touched" class="text-danger">
+      <div *ngIf="requiredForm.controls['name'].errors">
+        Name is required.
       </div>
     </div>
 
