@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormService } from 'src/app/services/form.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -18,7 +19,8 @@ export class FormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private formService: FormService
+    private formService: FormService,
+    protected router: Router
   ) {
     this.createForm();
   }
@@ -35,7 +37,6 @@ export class FormComponent implements OnInit {
     this.createForm();
   }
 
-  get name() { return this.requiredForm.get(this.user.name)}
 
   get f() {
     return this.requiredForm.controls;
@@ -51,6 +52,9 @@ export class FormComponent implements OnInit {
     }
     this.formService.userData(JSON.stringify(this.requiredForm.value)).subscribe(res => {
       this.data = res;
+
+    this.router.navigate(['/']);
     })
+
   }
 }

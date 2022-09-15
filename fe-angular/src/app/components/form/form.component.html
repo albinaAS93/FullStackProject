@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center border-secondary p-5 mt-4">
 
-  <form [formGroup]="requiredForm" (ngSubmit)="submit()" class="my-5 p-5">
+  <form [formGroup]="requiredForm"  class="my-5 p-5">
 
     <div class="form-group p-3">
       <label class="form-label" for="name">Name</label>
@@ -23,8 +23,8 @@
     </div>
 
     <div class="container d-flex justify-content-center my-3">
-      <button type="submit" class="btn btn-secondary m-2">Register</button>
-      <button type="submit" class="btn btn-dark m-2" routerLink="">Back</button>
+      <button type="button" class="btn btn-secondary m-2" (click)="submit()">Register</button>
+      <button type="button" class="btn btn-dark m-2" routerLink="">Back</button>
 
     </div>
 
