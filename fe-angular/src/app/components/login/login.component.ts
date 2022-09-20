@@ -14,9 +14,11 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private formService: FormService,
     private router: Router
-  ) { }
+  ) { 
+    this.loginForm();
+  }
 
-  form!: FormGroup;
+  requiredForm!: FormGroup;
   submitted = false;
   data: any;
   token: any;
@@ -25,8 +27,12 @@ export class LoginComponent implements OnInit {
     this.loginForm();
   }
 
+  get f() {
+    return this.requiredForm.controls;
+  }
+
   loginForm(){
-    this.form = this.formBuilder.group({
+    this.requiredForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required] ]
     })
@@ -34,18 +40,21 @@ export class LoginComponent implements OnInit {
 
   submit() {
 
-    if(this.form.invalid){
-      alert('Tutti i campi sono obbligatori');
-      return;
-    }
+    this.submitted = true;
 
     localStorage.setItem('isLogged', '0');
 
-    console.log(this.form.value);
+    console.log(this.requiredForm.value);
 
-
-    this.formService.login(JSON.stringify(this.form.value)).subscribe(res => {
+    if(this.requiredForm.invalid){
+      alert('Tutti i campi sono obbligatori');
+      return;
+    }
+    this.formService.login(JSON.stringify(this.requiredForm.value)).subscribe(res => {
       this.data = res;
+
+      this.router.navigate(['/']);
+      
       console.log(this.data.message);
 
       if(this.data.message == '1') {
