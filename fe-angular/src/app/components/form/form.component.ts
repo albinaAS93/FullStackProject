@@ -37,7 +37,6 @@ export class FormComponent implements OnInit {
     this.createForm();
   }
 
-
   get f() {
     return this.requiredForm.controls;
   }
