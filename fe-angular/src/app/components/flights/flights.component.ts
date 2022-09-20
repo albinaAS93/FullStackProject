@@ -26,7 +26,7 @@ export class FlightsComponent implements OnInit {
   }
 
   delete(id:any) {
-    alert("Flight has been deleted.");
+    confirm("Flight has been deleted.");
     this.flightsService.deleteFlight(id).subscribe(res => {
       this.flightsList();
     });

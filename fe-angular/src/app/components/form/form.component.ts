@@ -51,7 +51,7 @@ export class FormComponent implements OnInit {
     }
     this.formService.userData(JSON.stringify(this.requiredForm.value)).subscribe(res => {
       this.data = res;
-
+      confirm("You can login now");
     this.router.navigate(['/']);
     })
 
