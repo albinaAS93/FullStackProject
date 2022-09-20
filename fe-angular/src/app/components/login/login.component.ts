@@ -14,43 +14,50 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private formService: FormService,
     private router: Router
-  ) { }
+  ) {
+    this.loginForm();
+  }
 
-  form!: FormGroup;
+  requiredForm!: FormGroup;
   submitted = false;
   data: any;
   token: any;
+
+  loginForm(){
+    this.requiredForm = this.formBuilder.group({
+      username: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required] ]
+    });
+  }
 
   ngOnInit(): void {
     this.loginForm();
   }
 
-  loginForm(){
-    this.form = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required] ]
-    })
+  get f() {
+    return this.requiredForm.controls;
   }
 
   submit() {
 
-    if(this.form.invalid){
+    this.submitted = true;
+
+    if(this.requiredForm.invalid){
       alert('Tutti i campi sono obbligatori');
       return;
     }
 
     localStorage.setItem('isLogged', '0');
 
-    console.log(this.form.value);
+    console.log(this.requiredForm.value);
 
-
-    this.formService.login(JSON.stringify(this.form.value)).subscribe(res => {
+    this.formService.login(JSON.stringify(this.requiredForm.value)).subscribe(res => {
       this.data = res;
       console.log(this.data.message);
 
       if(this.data.message == '1') {
         localStorage.setItem('isLogged', '1');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
       }else {
         console.log("Email o password errata");
       }
