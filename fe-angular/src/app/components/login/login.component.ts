@@ -58,7 +58,6 @@ export class LoginComponent implements OnInit {
 
       if(this.data.message == '1') {
         localStorage.setItem('isLogged', '1');
-        this.router.navigate(['/']);
       }else {
         alert("Email o password errata");
       }

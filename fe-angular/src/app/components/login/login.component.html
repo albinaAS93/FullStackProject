@@ -1,7 +1,7 @@
 <div class="container my-2 p-3 d-flex justify-content-center p-5 mt-4">
   <a href="javascript:void(0)" [routerLink]="['']" class="nav-link"></a>
 
-  <form [formGroup]="requiredForm" class="p-5 my-5">
+  <form (ngSubmit)="submit()" [formGroup]="requiredForm" class="p-5 my-5">
 
     <div class="form-group mt-3 p-3">
         <label for="username" class="mb-1">Username</label>
@@ -24,7 +24,7 @@
       </div>
 
     <div class="container d-flex justify-content-center py-3">
-      <button type="submit" class="btn btn-secondary m-2" routerLink="/flights" (ngSubmit)="submit()">Login</button>
+      <button type="submit" class="btn btn-secondary m-2" routerLink="/flights">Login</button>
       <button type="submit" class="btn btn-dark m-2" routerLink="/form">Register</button>
     </div>
 
