@@ -57,12 +57,10 @@ export class ModifyFlightsComponent implements OnInit {
       this.data = res;
     });
   }
-
   update() {
     confirm("Flight has been updated.");
     this.flightsService.updateFlight(this.form.value).subscribe(res => {
       this.data = res;
     });
   }
-
 }

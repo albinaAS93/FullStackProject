@@ -1,0 +1,12 @@
+.message {
+    display: inline-block;
+    padding: 5rem;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    overflow: hidden;
+    transition: 5s ease-in;
+}
