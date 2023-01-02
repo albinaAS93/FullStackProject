@@ -46,12 +46,12 @@ export class FormComponent implements OnInit {
     this.submitted = true;
 
     if (this.requiredForm.invalid) {
-      alert('Tutti i campi sono obbligatori');
+      console.log('Tutti i campi sono obbligatori');
       return;
     }
     this.formService.userData(JSON.stringify(this.requiredForm.value)).subscribe(res => {
       this.data = res;
-      confirm("You can login now");
+      console.log("You can login now");
     this.router.navigate(['/']);
     })
 

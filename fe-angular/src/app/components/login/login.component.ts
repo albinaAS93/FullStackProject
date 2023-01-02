@@ -39,31 +39,24 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-
     this.submitted = true;
 
     if(this.requiredForm.invalid){
-      alert('Tutti i campi sono obbligatori');
+      console.log('Tutti i campi sono obbligatori');
       return;
     }
 
     localStorage.setItem('isLogged', '0');
-
     console.log(this.requiredForm.value);
-
     this.formService.login(JSON.stringify(this.requiredForm.value)).subscribe(res => {
       this.data = res;
-
       console.log(this.data.message);
 
       if(this.data.message == '1') {
         localStorage.setItem('isLogged', '1');
       }else {
-        alert("Email o password errata");
+        console.log("Email o password errata");
       }
-
     });
-
   }
-
 }

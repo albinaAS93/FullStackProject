@@ -1,28 +1,26 @@
-<div class="container my-5 py-5 w-100 table-responsive border-secondary">
+<div class="container pt-3 w-100 table-responsive border-secondary">
   <table class="table align-middle table-striped">
     <thead>
       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Departure</th>
-        <th scope="col">Arrival</th>
-        <th scope="col" class="text-center">Available Seats</th>
-        <th scope="col" class="text-center">Add</th>
-        <th scope="col" class="text-center">Update</th>
-        <th scope="col" class="text-center">Delete</th>
+        <th>ID</th>
+        <th class="city text-start ps-4">Departure</th>
+        <th class="city text-start ps-4">Arrival</th>
+        <th class="seats">Available Seats</th>
+        <th>Add / Update</th>
+        <th>Delete</th>
+      </tr>
     </thead>
     <tbody>
       <tr *ngFor="let flight of flights">
-        <th scope="row">{{flight.id}}</th>
-        <td>{{flight.departure}}</td>
-        <td>{{flight.arrival}}</td>
-        <td class="text-center">{{flight.availableSeats}}</td>
-        <td class="text-center">
-          <button type="button" class="btn btn-outline-dark" routerLink="/modifyFlights"><i class="fa-solid fa-plus"></i></button>
-        </td>
-        <td class="text-center">
+        <td>{{flight.id}}</td>
+        <td class="text-start ps-4">{{flight.departure}}</td>
+        <td class="text-start ps-4">{{flight.arrival}}</td>
+        <td>{{flight.availableSeats}}</td>
+        <td>
+          <button type="button" class="btn btn-outline-dark me-2" routerLink="/modifyFlights"><i class="fa-solid fa-plus"></i></button>
           <button type="button" class="btn btn-outline-dark" routerLink="/modifyFlights"><i class="fa-solid fa-pen-to-square"></i></button>
         </td>
-        <td class="text-center">
+        <td>
           <button type="button" class="btn btn-outline-dark" (click)="delete(flight.id)"><i class="fa-solid fa-xmark"></i></button>
         </td>
       </tr>

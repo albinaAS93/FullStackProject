@@ -1,0 +1,18 @@
+table {
+    width: 60rem;
+    margin: 1.5rem auto;
+    text-align: center;
+}
+th {
+    text-transform: uppercase;
+    border: 1px solid lightgray;
+}
+td {
+    border: 1px solid lightgray;
+}
+small {
+    padding-left: 10px;
+}
+.seats {
+    width: 12rem;
+}
