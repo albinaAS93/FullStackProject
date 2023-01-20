@@ -15,18 +15,18 @@ Inoltre nella nav bar è presente anche la funzione di logout.
 </p>
 
 <h3> Il sito si presenta così </h3>
-  
-![login](https://user-images.githubusercontent.com/102250096/213730893-6b4b4366-67a1-4dfe-b32c-1e7d38c9d15d.PNG)
-![register](https://user-images.githubusercontent.com/102250096/213731788-fc600f33-9679-41d0-922a-b762ea8c68c3.PNG)
-  
+
+ ![login](https://user-images.githubusercontent.com/102250096/213732436-ca0cfed5-cb17-4ecc-b973-97ea7fad6cff.PNG)
+ ![register](https://user-images.githubusercontent.com/102250096/213732461-a57a5548-21e8-4a49-be6c-5a7e7925640d.PNG)
+
 <br>
-![flights](https://user-images.githubusercontent.com/102250096/213730975-b41213e4-24ca-42e0-a2bb-d0a4915d1c30.PNG)
-![modify](https://user-images.githubusercontent.com/102250096/213731008-c78a809b-23d3-4c04-914e-0a35fda2ef55.PNG)
+
+![flights](https://user-images.githubusercontent.com/102250096/213732505-4d176de0-0172-4295-995c-7ba1aeeaa7e4.PNG)
+![modify](https://user-images.githubusercontent.com/102250096/213732496-ca12edbd-80e7-48ef-83a9-696b9ead2283.PNG)
 
 <br>
 
 Il sito è stato deployato su Altervista.org   <a href="http://s2iprogettofullstack.altervista.org/"> Full Stack Project </a>
-
 
 <br><br>
 
