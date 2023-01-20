@@ -17,7 +17,7 @@ Inoltre nella nav bar è presente anche la funzione di logout.
 <h3> Il sito si presenta così </h3>
   
 ![login](https://user-images.githubusercontent.com/102250096/213730893-6b4b4366-67a1-4dfe-b32c-1e7d38c9d15d.PNG)
-![register](https://user-images.githubusercontent.com/102250096/213730933-aa63ee5a-0251-4e4c-9d80-af2a0f08704e.PNG)
+![register](https://user-images.githubusercontent.com/102250096/213731788-fc600f33-9679-41d0-922a-b762ea8c68c3.PNG)
   
 <br>
 ![flights](https://user-images.githubusercontent.com/102250096/213730975-b41213e4-24ca-42e0-a2bb-d0a4915d1c30.PNG)
