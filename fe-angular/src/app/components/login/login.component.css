@@ -1,4 +1,4 @@
-.container {
+.login {
     width: 30rem;
     margin: 7rem auto;
     border: 1px solid lightgray;
@@ -15,4 +15,33 @@ form {
 .btn {
     width: 5rem;
     margin: 0.5rem;
+}
+
+.message {
+    color: red;
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@media (max-width: 1199px) {
+    .login  {
+        margin: 4rem auto;
+    }
+}
+@media (max-width: 768px) {
+    .login  {
+        margin: 4rem auto;
+    }
+}
+@media (max-width: 500px) {
+    .login  {
+        width: 20rem;
+        margin: 3rem auto;
+    }
+    form {
+        padding: 4rem 1rem;
+    }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, VERSION, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormService } from 'src/app/services/form.service';
 import { Router } from '@angular/router';
@@ -42,9 +42,7 @@ export class FormComponent implements OnInit {
   }
 
   submit() {
-
     this.submitted = true;
-
     if (this.requiredForm.invalid) {
       console.log('Tutti i campi sono obbligatori');
       return;
@@ -54,6 +52,12 @@ export class FormComponent implements OnInit {
       console.log("You can login now");
     this.router.navigate(['/']);
     })
+  }
 
+  name = "Angular " + VERSION.major;
+  @ViewChild("mm")
+  mm!: ElementRef;
+  message() {
+    this.mm.nativeElement.innerHTML = "all fields are required!";
   }
 }

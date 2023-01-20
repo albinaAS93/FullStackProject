@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, VERSION, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormService } from 'src/app/services/form.service';
@@ -38,6 +38,13 @@ export class LoginComponent implements OnInit {
     return this.requiredForm.controls;
   }
 
+  name = "Angular " + VERSION.major;
+  @ViewChild("mm")
+  mm!: ElementRef;
+  message() {
+    this.mm.nativeElement.innerHTML = "All fields are required!";
+  }
+
   submit() {
     this.submitted = true;
 
@@ -56,6 +63,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('isLogged', '1');
       }else {
         console.log("Email o password errata");
+        this.mm.nativeElement.innerHTML = "wrong username or password!";
       }
     });
   }

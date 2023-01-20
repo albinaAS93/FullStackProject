@@ -1,11 +1,20 @@
-<div class="container pt-3 w-100 table-responsive border-secondary">
+<div class="container table-responsive border-secondary">
   <table class="table align-middle table-striped">
-    <thead>
+    <thead class="align-middle">
       <tr>
         <th>ID</th>
-        <th class="city text-start ps-4">Departure</th>
-        <th class="city text-start ps-4">Arrival</th>
-        <th class="seats">Available Seats</th>
+        <th class="city text-start ps-lg-4 ps-sm-2">
+          <span class="d-none d-sm-block">Departure</span>
+          <span class="d-block d-sm-none">Dep</span>
+        </th>
+        <th class="city text-start ps-lg-4 ps-sm-2">
+          <span class="d-none d-sm-block">Arrival</span>
+          <span class="d-block d-sm-none">Arr</span>
+        </th>
+        <th class="seats">
+          <span class="d-none d-sm-block">Available Seats</span>
+          <span class="d-block d-sm-none">Av. Seats</span>
+        </th>
         <th>Add / Update</th>
         <th>Delete</th>
       </tr>
@@ -13,17 +22,18 @@
     <tbody>
       <tr *ngFor="let flight of flights">
         <td>{{flight.id}}</td>
-        <td class="text-start ps-4">{{flight.departure}}</td>
-        <td class="text-start ps-4">{{flight.arrival}}</td>
+        <td class="text-start ps-lg-4 ps-sm-2">{{flight.departure}}</td>
+        <td class="text-start ps-lg-4 ps-sm-2">{{flight.arrival}}</td>
         <td>{{flight.availableSeats}}</td>
-        <td>
-          <button type="button" class="btn btn-outline-dark me-2" routerLink="/modifyFlights"><i class="fa-solid fa-plus"></i></button>
+        <td class="d-sm-block">
+          <button type="button" class="btn btn-outline-dark" routerLink="/modifyFlights"><i class="fa-solid fa-plus"></i></button>
           <button type="button" class="btn btn-outline-dark" routerLink="/modifyFlights"><i class="fa-solid fa-pen-to-square"></i></button>
         </td>
         <td>
-          <button type="button" class="btn btn-outline-dark" (click)="delete(flight.id)"><i class="fa-solid fa-xmark"></i></button>
+          <button type="button" class="btn btn-outline-dark" (click)="delete(flight.id)" (click)="message()"><i class="fa-solid fa-xmark"></i></button>
         </td>
       </tr>
     </tbody>
   </table>
+  <div class="message" #mm (click)="FF()"></div>
 </div>
