@@ -16,7 +16,7 @@ Inoltre nella nav bar è presente anche la funzione di logout.
 
 <h3> Il sito si presenta così </h3>
   
-![login](https://user-images.githubusercontent.com/102250096/180622513-cc5c8ac7-c754-4378-bdca-1bca3e57085d.PNG)
+![login]![image](https://user-images.githubusercontent.com/102250096/213729285-14418b1c-376f-41ce-91cb-8b5c3fc404bf.png)
 ![register](https://user-images.githubusercontent.com/102250096/180622523-93ff25d2-9232-4c52-a9e5-672e89959b07.PNG)
   
 <br>
