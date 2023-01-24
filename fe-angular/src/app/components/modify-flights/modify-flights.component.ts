@@ -75,6 +75,7 @@ export class ModifyFlightsComponent implements OnInit {
     this.flightsService.addFlight(this.requiredForm.value).subscribe(res => {
       this.data = res;
       console.log(this.requiredForm.value);
+      this.mm.nativeElement.style.display = "block";
       this.mm.nativeElement.innerHTML = "A new flight has been added.";
     });
   }
@@ -107,6 +108,7 @@ export class ModifyFlightsComponent implements OnInit {
     this.flightsService.updateFlight(this.requiredForm2.value).subscribe(res => {
       this.data = res;
       console.log(this.requiredForm2.value);
+      this.mm2.nativeElement.style.display = "block";
       this.mm2.nativeElement.innerHTML = "Flight has been updated.";
     });
   }

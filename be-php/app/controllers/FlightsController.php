@@ -2,7 +2,7 @@
 
     class FlightsController extends BaseController {
 
-        public function read($parameters) {
+        public function read() {
             
             $this->outputHeadersFromMethod('GET');
 
@@ -89,7 +89,7 @@
 
         public function update() {
 
-            $this->outputHeadersFromMethod('UPDATE');
+            $this->outputHeadersFromMethod('PUT');
 
             $request = new Request();
             $request->decodeHttpRequest();

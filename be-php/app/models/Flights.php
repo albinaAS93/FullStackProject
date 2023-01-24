@@ -11,8 +11,8 @@ class Flight
 
     function selectAll()
     {
-        $sql = "
-            SELECT
+        $sql = 
+            "SELECT
                 flights.id,
                 c1.name as departure,
                 c2.name as arrival,
@@ -37,8 +37,8 @@ class Flight
 
     function selectByCity(array $data)
     {
-        $sql = "
-            SELECT
+        $sql = 
+            "SELECT
                 flights.id,
                 c1.name as departure,
                 c2.name as arrival,
@@ -46,8 +46,7 @@ class Flight
             FROM flights
             LEFT JOIN cities c1 ON c1.id = flights.departure
             LEFT JOIN cities c2 ON c2.id = flights.arrival
-            WHERE c1.name = :name OR c2.name = :name
-            ;"
+            WHERE c1.name = :name OR c2.name = :name;"
         ;
 
         $stmt = $this->pdo->openConnection()->prepare($sql);
@@ -66,8 +65,8 @@ class Flight
 
     function selectBySeats(array $data)
     {
-        $sql = "
-            SELECT
+        $sql = 
+            "SELECT
                 flights.id,
                 c1.name as departure,
                 c2.name as arrival,
@@ -75,8 +74,7 @@ class Flight
             FROM flights
             LEFT JOIN cities c1 ON c1.id = flights.departure
             LEFT JOIN cities c2 ON c2.id = flights.arrival
-            HAVING flights.availableSeats >= :seats
-            ;"
+            HAVING flights.availableSeats >= :seats;"
         ;
 
         $stmt = $this->pdo->openConnection()->prepare($sql);
@@ -94,9 +92,9 @@ class Flight
 
     function create(array $data)
     {
-        $sql = "
-            INSERT INTO flights (departure, arrival, availableSeats) 
-            VALUES (:departure, :arrival, :availableSeats)"
+        $sql = 
+            "INSERT INTO flights (departure, arrival, availableSeats) 
+            VALUES (:departure, :arrival, :availableSeats);"
         ;
 
         $stmt = $this->pdo->openConnection()->prepare($sql);
@@ -114,10 +112,10 @@ class Flight
 
     function update(array $data)
     {
-        $sql = "
-            UPDATE flights 
+        $sql = 
+            "UPDATE flights 
             SET availableSeats = :seats 
-            WHERE id = :id"
+            WHERE id = :id;"
         ;
 
         $stmt = $this->pdo->openConnection()->prepare($sql);
@@ -130,9 +128,9 @@ class Flight
 
     function delete(int $id)
     {
-        $sql = "
-            DELETE FROM flights
-            WHERE id = :id"
+        $sql = 
+            "DELETE FROM flights
+            WHERE id = :id;"
         ;
 
         $stmt = $this->pdo->openConnection()->prepare($sql);

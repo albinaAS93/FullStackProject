@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row border-secondary justify-content-center flights">
-    <div class="col-12 col-sm-6 col-lg-5">
+  <div class="row border-secondary justify-content-center flights mb-5">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-5">
       <div class="card mb-4 rounded-3 shadow-sm border-secondary">
         <div class="card-header py-2 bg-light text-dark">
           <h4 class="my-0 fw-normal text-center">Add Flight</h4>
@@ -51,25 +51,24 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-sm-6 col-lg-5">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-5">
       <div class="card mb-4 rounded-3 shadow-sm border-secondary">
         <div class="card-header py-2 bg-light">
           <h4 class="my-0 fw-normal text-center">Update Flight</h4>
         </div>
-        <div class="card-body py-4">
+        <div class="card-body pt-5">
           <form (ngSubmit)="update()" [formGroup]="requiredForm2">
-            <div class="p-2"></div>
-            <div class="form-group p-3">
+            <div class="form-group p-3 pt-4">
               <label for="id">Update Flight</label>
               <select class="form-control" formControlName="id" name="id" id="id">
                 <option value={{flight.id}} *ngFor="let flight of flights">{{flight.departure}} - {{flight.arrival}}
               </select>
             </div>
-            <div class="form-group p-3">
+            <div class="form-group p-3 pb-4">
               <label for="availableSeats">Available Seats</label>
               <input type="number" formControlName="availableSeats" name="availableSeats" class="form-control" placeholder="Enter seats">
             </div>
-            <div class="container d-flex justify-content-center mt-5 pt-5">
+            <div class="container d-flex justify-content-center my-4 pt-5">
               <button type="submit" (click)="messageUp()" class="w-50 btn btn-lg btn-secondary m-1">
                 Update
               </button>

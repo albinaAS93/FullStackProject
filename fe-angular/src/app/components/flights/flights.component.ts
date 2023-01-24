@@ -29,6 +29,7 @@ export class FlightsComponent implements OnInit {
     this.flightsService.deleteFlight(id).subscribe(res => {
       this.flightsList();
       console.log("Flight has been deleted.");
+      this.mm.nativeElement.style.display = "block";
       this.mm.nativeElement.innerHTML = "Selected flight has been deleted!";
     });
   }

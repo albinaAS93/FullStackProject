@@ -45,19 +45,20 @@ export class FormComponent implements OnInit {
     this.submitted = true;
     if (this.requiredForm.invalid) {
       console.log('Tutti i campi sono obbligatori');
+      this.mm.nativeElement.innerHTML = "all fields are required!";
       return;
     }
     this.formService.userData(JSON.stringify(this.requiredForm.value)).subscribe(res => {
       this.data = res;
       console.log("You can login now");
-    this.router.navigate(['/']);
+      this.router.navigate(['/']);
     })
   }
 
   name = "Angular " + VERSION.major;
   @ViewChild("mm")
   mm!: ElementRef;
-  message() {
+  msg() {
     this.mm.nativeElement.innerHTML = "all fields are required!";
   }
 }

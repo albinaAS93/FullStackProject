@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   name = "Angular " + VERSION.major;
   @ViewChild("mm")
   mm!: ElementRef;
-  message() {
+  msg() {
     this.mm.nativeElement.innerHTML = "All fields are required!";
   }
 
