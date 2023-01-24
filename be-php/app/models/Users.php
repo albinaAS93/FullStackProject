@@ -18,8 +18,6 @@ class User {
 
         $stmt = $this->pdo->openConnection()->prepare($sql);
 
-        // $hash =  password_hash($data['password'], PASSWORD_DEFAULT);
-
         $param = array(
             'name' => $data['name'],
             'username' => $data['username'],
